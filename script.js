@@ -7,7 +7,7 @@ let banco_dadosTurma = null;
 // 1. Carrega o JSON da turma na inicialização
 async function getDataTurma(){
   try {
-    let response = await fetch('../backend/dados.json');
+    let response = await fetch('dados.json');
     if(!response.ok) throw new Error("Erro ao pegar o json");
     banco_dadosTurma = await response.json();
     console.log("Matrix: Banco de dados da turma carregado na RAM!");
@@ -34,7 +34,7 @@ function talk(fala){
 // Envia a string final para o parâmetro do Flask antigo
 async function getData(perguntaCompleta){
   try {
-    let response = await fetch(`http://127.0.0.1:5000/ia?pergunta=${encodeURIComponent(perguntaCompleta)}`);
+    let response = await fetch(`https://v-rtex-backend.onrender.com/ia?pergunta=${encodeURIComponent(perguntaCompleta)}`);
     if(!response.ok) throw new Error('erro:' + response.status);
     return response.json();
   } catch(erro) {
