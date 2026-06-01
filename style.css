@@ -1,0 +1,167 @@
+/* ==========================================================================
+   VÓRTEX AI - PROTOCOLO DE ESTILIZAÇÃO CYBERPUNK
+   ========================================================================== */
+
+/* Reset de Fábrica e Variáveis de Cores Cosmic */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+:root {
+    --bg-principal: #0a090f;       /* Preto espacial profundo */
+    --bg-card: #12101c;            /* Cinza arroxeado escuro */
+    --neon-purple: #9d4edd;        /* Roxo neon principal */
+    --neon-glow: #7b2cbf;          /* Roxo de fundo para brilho */
+    --neon-cyan: #240046;          /* Roxo escuro para gradiente */
+    --texto-principal: #f3e5f5;    /* Branco fosco confortável */
+    --texto-mutado: #9a8c9d;       /* Cinza para textos secundários */
+    --borda-neon: rgba(157, 78, 221, 0.2);
+}
+
+/* Corpo da Página - Centralização Absoluta */
+body {
+    background-color: var(--bg-principal);
+    color: var(--texto-principal);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    overflow-x: hidden;
+    /* Efeito sutil de linhas de scanner de monitor antigo */
+    background-image: linear-gradient(rgba(18, 16, 28, 0.3) 1px, transparent 1px);
+    background-size: 100% 4px;
+}
+
+/* Container Principal do App */
+.container {
+    width: 100%;
+    max-width: 550px;
+    background-color: var(--bg-card);
+    border: 1px solid var(--borda-neon);
+    border-radius: 16px;
+    padding: 30px;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37),
+                0 0 15px rgba(157, 78, 221, 0.1);
+    backdrop-filter: blur(4px);
+    transition: all 0.3s ease;
+}
+
+/* Cabeçalho da Vórtex */
+header {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+header h1 {
+    font-size: 2.2rem;
+    font-weight: 800;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    background: linear-gradient(45deg, #e0aaff, var(--neon-purple));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 0 10px rgba(157, 78, 221, 0.3);
+}
+
+header p {
+    color: var(--texto-mutado);
+    font-size: 0.9rem;
+    margin-top: 5px;
+    letter-spacing: 1px;
+}
+
+/* Área de Exibição da Resposta (Onde o texto do Gemini aparece) */
+.output-area {
+    background-color: rgba(10, 9, 15, 0.6);
+    border-left: 4px solid var(--neon-purple);
+    border-radius: 4px 8px 8px 4px;
+    padding: 20px;
+    min-height: 120px;
+    max-height: 250px;
+    overflow-y: auto;
+    margin-bottom: 25px;
+    font-size: 1.05rem;
+    line-height: 1.6;
+    color: #f8f1f9;
+}
+
+/* Estilização da Barra de Rolagem da Resposta */
+.output-area::-webkit-scrollbar {
+    width: 6px;
+}
+.output-area::-webkit-scrollbar-track {
+    background: rgba(0,0,0,0.1);
+}
+.output-area::-webkit-scrollbar-thumb {
+    background: var(--neon-glow);
+    border-radius: 10px;
+}
+
+/* Caixa de Input e Elementos de Entrada */
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+input[type="text"] {
+    width: 100%;
+    background-color: var(--bg-principal);
+    border: 1px solid rgba(157, 78, 221, 0.3);
+    border-radius: 8px;
+    padding: 14px 16px;
+    color: var(--texto-principal);
+    font-size: 1rem;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+input[type="text"]:focus {
+    border-color: var(--neon-purple);
+    box-shadow: 0 0 10px rgba(157, 78, 221, 0.2);
+}
+
+input[type="text"]::placeholder {
+    color: #5a5066;
+}
+
+/* Botão de Envio com Efeito de Brilho */
+button {
+    width: 100%;
+    background: linear-gradient(135deg, var(--neon-glow), var(--neon-purple));
+    border: none;
+    border-radius: 8px;
+    padding: 14px;
+    color: white;
+    font-size: 1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(123, 44, 191, 0.3);
+}
+
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(157, 78, 221, 0.5);
+    background: linear-gradient(135deg, var(--neon-purple), #c77dff);
+}
+
+button:active {
+    transform: translateY(1px);
+}
+
+/* Responsividade Básica */
+@media (max-width: 480px) {
+    .container {
+        padding: 20px;
+    }
+    header h1 {
+        font-size: 1.8rem;
+    }
+}
